@@ -20,9 +20,30 @@ extension ControlCenter {
         print("cell to left of robot?: \(cell.left)")
         print("cell to right of robot?: \(cell.right)")
         
-        // You may want to paste your Part 1 implementation of isFacingWall() here
+        // Step 1.1a
+        // TODO: Write a switch statement handling all possible values of direction. The first case has been done for you. Uncomment the code and add the remaining cases!
+        switch(direction) {
+        case .up:
+            if cell.top {
+                isWall = true
+            }
+        case .down:
+            if cell.bottom {
+                isWall = true
+            }
+        case .right:
+            if cell.right {
+                isWall = true
+            }
+        case .left:
+            if cell.left {
+                isWall = true
+            }
+        }
         
-        return false
+        // Step 1.1b
+        // TODO: Return a Bool that represents whether the robot is currently facing a wall. You will need to change the placeholder return statement below.
+        return isWall
     }
     
     func checkWalls(_ robot:ComplexRobotObject) -> (up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int) {
@@ -43,15 +64,18 @@ extension ControlCenter {
         
         // Step 2.1a
         // TODO: Check if there is a wall at the bottom of the current cell
+        let isWallDown = cell.bottom
+        if isWallDown {
+            numberOfWalls += 1
+        }
         
         // TODO: Check if there is a wall to the left of the current cell
-        
-        
-        // Step 2.1b
-        // TODO: Test the checkWalls function.
+        let isWallLeft = cell.left
+        if isWallLeft {
+            numberOfWalls += 1
+        }
         
         // TODO: Return a tuple representing the bools for top, right, down & left, and the number of walls
-        // This tuple is a placeholder
-        return (false, false, false, false, 0)
+        return (isWallUp, isWallRight, isWallDown, isWallLeft, numberOfWalls)
     }
 }
