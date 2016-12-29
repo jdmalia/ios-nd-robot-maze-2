@@ -15,6 +15,11 @@ extension ControlCenter {
         print("randomlyRotateRightOrLeft: \(randomNumber)")
         // Step 1.2
         // TODO: Write an if statement that randomly calls either robot.rotateRight() or robot.rotateLeft() (based on the value of the randomNumber constant)
+        if randomNumber == 0 {
+            robot.rotateRight()
+        } else {
+            robot.rotateLeft()
+        }
     }
     
     func continueStraightOrRotate(_ robot: ComplexRobotObject) {
@@ -22,5 +27,10 @@ extension ControlCenter {
         print("continueStraightOrRotate: \(randomNumber)")
         // Step 1.3
         // TODO: Write an if statement that randomly calls either robot.move() or randomlyRotateRightOrLeft(robot: ComplexRobotObject)
+        if randomNumber == 0 {
+            robot.move()
+        } else {
+            randomlyRotateRightOrLeft(robot)
+        }
     }
 }

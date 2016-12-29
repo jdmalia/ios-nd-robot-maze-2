@@ -22,19 +22,27 @@ extension ControlCenter {
 
         // Step 1.1a
         // TODO: Write a switch statement handling all possible values of direction. The first case has been done for you. Uncomment the code and add the remaining cases!
-        //        switch(direction) {
-        //        case .Up:
-        //            if cell.top {
-        //                isWall = true
-        //            }
-        //
-        //        }
+        switch(direction) {
+        case .up:
+            if cell.top {
+                isWall = true
+            }
+        case .down:
+            if cell.bottom {
+                isWall = true
+            }
+        case .right:
+            if cell.right {
+                isWall = true
+            }
+        case .left:
+            if cell.left {
+                isWall = true
+            }
+        }
         
         // Step 1.1b
         // TODO: Return a Bool that represents whether the robot is currently facing a wall. You will need to change the placeholder return statement below.
-        
-        
-        // Placeholder
-        return false
+        return isWall
     }
 }
